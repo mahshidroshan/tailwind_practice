@@ -1,21 +1,16 @@
 {
-  "devDependencies": {
-    "copyfiles": "^2.4.1",
-    "mkdirp": "^3.0.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.3"
-  },
+  "name": "lesson05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
   "scripts": {
-    "prebuild": "node prebuild.js",
-    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
-    "build:html": "npx copyfiles -u 1 src/*.html dist/",
-    "build:img": "npx copyfiles -u 1 src/img/* dist/img/",
-    "build": "npm run prebuild && npm run build:css && npm run build:html && npm run build:img",
-    "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+    "tailwind": "npx tailwindcss -i ./src/input.css -o ./build/css/style.css --watch",
+    "prettier": "npx prettier --write ./build/*.html"
   },
-  "dependencies": {
-    "tslib": "^2.6.2"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.1.13"
   }
 }
