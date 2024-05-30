@@ -1,16 +1,20 @@
 {
   "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "cp-cli": "^2.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.3",
-    "npm-run-all": "^4.1.5",
-    "cp-cli": "^2.0.0"
+    "tailwindcss": "^3.4.3"
   },
   "scripts": {
     "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
-    "build:html": "cp-cli src/*.html dist/",
-    "build:img": "cp-cli src/img dist/",
+    "build:html": "mkdir dist 2>nul & cp-cli src/*.html dist/",
+    "build:img": "mkdir dist/img 2>nul & cp-cli src/img dist/img",
     "build": "npm-run-all build:css build:html build:img",
     "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
   }
 }
