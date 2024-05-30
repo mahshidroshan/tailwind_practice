@@ -12,7 +12,7 @@
     "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
     "build:html": "npx copyfiles -u 1 src/*.html dist/",
     "build:img": "npx copyfiles -u 1 src/img/* dist/img/",
-    "build": "npm run prebuild && npm-run-all build:css build:html build:img",
+    "build": "npm run prebuild && npm run build:css && npm run build:html && npm run build:img",
     "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
   "dependencies": {
