@@ -2,9 +2,15 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.3",
+    "npm-run-all": "^4.1.5",
+    "cp-cli": "^2.0.0"
   },
   "scripts": {
-    "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "build:html": "cp-cli src/*.html dist/",
+    "build:img": "cp-cli src/img dist/",
+    "build": "npm-run-all build:css build:html build:img",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   }
 }
